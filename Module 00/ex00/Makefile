@@ -6,7 +6,7 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2023/11/26 18:15:59 by nmota-bu         ###   ########.fr        #
+#    Updated: 2023/11/27 17:13:59 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ NAME	=	megaphone
 
 # ═══ COMPILATE ═══════════════════════════════════════════════════════════════#
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-CC		= g++
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors -fsanitize=address
+CC		= c++
 INC		= -I includes
 RM		= rm -rf
 
