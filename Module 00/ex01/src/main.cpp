@@ -6,15 +6,15 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:16:51 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/05 17:43:42 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:38:31 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/phonebook.hpp"
-#include <thread>
+#include "phonebook.hpp"
 #include <chrono>
+#include <thread>
 
-void menu(void)
+void	menu(void)
 {
 	std::system("clear");
 	std::cout << UCYAN "My Awesome PhoneBook\n" RESET << std::endl;
@@ -23,11 +23,12 @@ void menu(void)
 	std::cout << MENU "EXIT   :" RESET BOLD " Exit the program" RESET << std::endl;
 }
 
-int main(void)
+int	main(void)
 {
-	std::string line;
-	bool flag = true;
+	bool	flag;
 
+	std::string line;
+	flag = true;
 	while (42)
 	{
 		if (flag)
@@ -44,7 +45,7 @@ int main(void)
 		else if (!line.compare("SEARCH"))
 			std::cout << "es SEARCH" << std::endl;
 		else if (!line.compare("EXIT"))
-			break;
+			break ;
 		else
 		{
 			flag = true;
@@ -55,6 +56,6 @@ int main(void)
 	}
 	std::system("clear");
 	std::cout << GREEN << "Goodbye..." << RESET << std::endl;
-
-	return 0;
+	return (0);
 }
+//TODO mirar si el retorno del getline es NULL (ctrl+D)
