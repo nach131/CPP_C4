@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   contacts.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 16:14:31 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/10 18:14:13 by nmota-bu         ###   ########.fr       */
+/*   Created: 2023/12/09 13:19:12 by nmota-bu          #+#    #+#             */
+/*   Updated: 2023/12/10 18:43:24 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef CONTACTS_HPP
+#define CONTACTS_HPP
 
 #include <iostream>
-#include "contacts.hpp"
 
-#define SIZE 8
-
-class PhoneBook
+class Contacs
 {
 private:
-	Contacs contacts[SIZE];
-	int list;
-	PhoneBook operator++();
-	// PhoneBook operator--();
+	// int id;
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+	std::string phone_num;
+	std::string dark_secret;
 
 public:
-	PhoneBook();
-	~PhoneBook();
-	bool addContac(void);
-	bool showPhoneBook();
+	Contacs();
+	~Contacs();
+	// int idContact();
+	// void addId(int id);
+	void NewContact(void);
+	void ShowContact(int id);
 };
 
 #endif
