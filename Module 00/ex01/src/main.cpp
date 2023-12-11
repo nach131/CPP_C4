@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:16:51 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 11:36:54 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:59:20 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ int main(void)
 
 	while (42)
 	{
+		std::system("clear");
+
 		if (flag)
 		{
 			menu(0);
-			menu(SEARCH);
 			std::cout << "> ";
 		}
 		getline(std::cin, line);
@@ -52,8 +53,9 @@ int main(void)
 		{
 			flag = true;
 			std::system("clear");
+			menu(0);
 			std::cout << ERROR << "Invalid command !!!" << RESET << std::endl;
-			std::this_thread::sleep_for(std::chrono::seconds(2));
+			std::this_thread::sleep_for(std::chrono::seconds(1));
 		}
 	}
 	std::system("clear");
