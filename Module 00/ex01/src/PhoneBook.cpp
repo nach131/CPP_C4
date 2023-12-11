@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 13:18:11 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 22:26:02 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/11 22:33:48 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ bool PhoneBook::addContac(void)
 	{
 		infoNewContact(i);
 		getline(std::cin, lines[i]);
-		if (i == 5)
-			flag = true;
 		if (lines[i].empty())
 			break;
+		if (i == 4)
+			flag = true;
 	}
 	if (flag == true)
 	{
@@ -99,7 +99,6 @@ void PhoneBook::MoreInfo(void)
 
 bool PhoneBook::showPhoneBook(void)
 {
-	// menu(0);
 	if (this->list == -1)
 		std::cout << ERROR << "My Awesome PhoneBook is empty" << RESET << std::endl;
 	else

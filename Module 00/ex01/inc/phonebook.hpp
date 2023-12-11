@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:14:31 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 20:24:51 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/11 22:34:09 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ private:
 	Contacs contacts[SIZE];
 	int list;
 	PhoneBook operator++();
-	// PhoneBook operator--();
 
 public:
 	PhoneBook();
