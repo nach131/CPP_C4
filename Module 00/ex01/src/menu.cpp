@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:06:06 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 17:03:37 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:40:24 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void menu(int type)
 	else if (type == SEARCH)
 	{
 		{
+			std::cout << "           " << UCYAN "My Awesome PhoneBook\n" RESET << std::endl;
+
 			std::cout << MENU << "╔══════════╦══════════╦══════════╦══════════╗" << std::endl;
 			std::cout << "║  INDEX   ║ 1ST NAME ║ LST NAME ║ NICKNAME ║" << std::endl;
 			std::cout << "╠══════════╬══════════╬══════════╬══════════╣" << RESET << std::endl;

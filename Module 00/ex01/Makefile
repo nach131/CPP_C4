@@ -6,7 +6,7 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2023/12/09 15:40:10 by nmota-bu         ###   ########.fr        #
+#    Updated: 2023/12/11 22:09:09 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME	=	phonebook
 
 # ═══ COMPILATE ═══════════════════════════════════════════════════════════════#
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
 SANI = -fsanitize=address
 CC		= c++
 INC		= -I inc
@@ -29,7 +29,6 @@ RM		= rm -rf
 SRC	=	$(wildcard src/*.cpp)
 OBJS_D	=	objs
 OBJ	=	$(SRC:src/%.cpp=$(OBJS_D)/%.o)
-# OBJ	=	$(addprefix $(OBJS_D)/, $(SRC:=.o))
 
 UNAME	:=	$(shell uname)
 

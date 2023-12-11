@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 13:18:46 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 16:57:25 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/11 22:19:05 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,18 @@ Contacs::Contacs() {}
 
 Contacs::~Contacs() {}
 
-void Contacs::MoreInfo()
+void Contacs::ShowAllInfo()
 {
-	std::string line;
-
-	getline(std::cin, line);
-	if (!line.compare("@"))
-		return;
+	std::cout << MENU << "First Name:"
+			  << RESET << " " << GREEN << this->first_name << std::endl;
+	std::cout << MENU << "Last Name:"
+			  << RESET << " " << GREEN << this->last_name << std::endl;
+	std::cout << MENU << "Nickname:"
+			  << RESET << " " << GREEN << this->nickname << std::endl;
+	std::cout << MENU << "Phone number:"
+			  << RESET << " " << GREEN << this->phone_num << std::endl;
+	std::cout << MENU << "Darkest secret:"
+			  << RESET << " " << GREEN << this->dark_secret << RESET << std::endl;
 }
 
 void Contacs::ShowContact(int i)

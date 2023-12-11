@@ -2,6 +2,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "lldb",
+      "request": "launch",
+      "name": "CPP",
+      "program": "${workspaceFolder}/Module 00/ex01/phonebook",
+      "args": [],
+      "stopOnEntry": false,
+      "cwd": "${workspaceFolder}"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "lldb",
       "request": "launch",

@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:14:31 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/10 19:15:30 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:24:51 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ public:
 	~PhoneBook();
 	bool addContac(void);
 	bool showPhoneBook();
+	void MoreInfo(void);
 };
 
 void menu(int type);

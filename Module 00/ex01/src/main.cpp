@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:16:51 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 11:59:20 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/11 22:06:12 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int main(void)
 			menu(0);
 			std::cout << "> ";
 		}
-		getline(std::cin, line);
+		if (!getline(std::cin, line))
+			break;
 		if (!line.compare("ADD"))
 		{
 			clear(flag);
@@ -62,4 +63,3 @@ int main(void)
 	std::cout << GREEN << "Goodbye..." << RESET << std::endl;
 	return (0);
 }
-//TODO mirar si el retorno del getline es NULL (ctrl+D)

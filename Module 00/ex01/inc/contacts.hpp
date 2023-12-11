@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 13:19:12 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 16:41:13 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:26:48 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	~Contacs();
 	void NewContact(std::string, std::string, std::string, std::string, std::string);
 	void ShowContact(int i);
-	void MoreInfo(void);
+	void ShowAllInfo(void);
 };
 
 #endif
