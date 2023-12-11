@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:16:51 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/09 21:34:07 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:36:54 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 #include "colors.hpp"
 #include <chrono>
 #include <thread>
-
-void	menu(void)
-{
-	std::system("clear");
-	std::cout << UCYAN "My Awesome PhoneBook\n" RESET << std::endl;
-	std::cout << MENU "ADD    :" RESET BOLD " Add a new contact to your phone book (max. 8)" << std::endl;
-	std::cout << MENU "SEARCH :" RESET BOLD " will display the Phone Book" << std::endl;
-	std::cout << MENU "EXIT   :" RESET BOLD " Exit the program" RESET << std::endl;
-}
 
 void clear(bool &flag)
 {
@@ -40,7 +31,8 @@ int main(void)
 	{
 		if (flag)
 		{
-			menu();
+			menu(0);
+			menu(SEARCH);
 			std::cout << "> ";
 		}
 		getline(std::cin, line);

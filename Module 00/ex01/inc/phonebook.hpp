@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:14:31 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/10 18:14:13 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/10 19:15:30 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 #include "contacts.hpp"
 
 #define SIZE 8
+
+enum
+{
+	INI,
+	ADD,
+	SEARCH
+};
 
 class PhoneBook
 {
@@ -32,5 +39,7 @@ public:
 	bool addContac(void);
 	bool showPhoneBook();
 };
+
+void menu(int type);
 
 #endif
