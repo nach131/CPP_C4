@@ -6,7 +6,7 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2023/11/27 17:13:59 by nmota-bu         ###   ########.fr        #
+#    Updated: 2023/12/12 18:33:13 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,18 +20,18 @@ NAME	=	megaphone
 
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors -fsanitize=address
 CC		= c++
-INC		= -I includes
+INC		= -I inc
 RM		= rm -rf
 
 # ═══ DIRECTORIES ═════════════════════════════════════════════════════════════#
 
 SRC	=	$(wildcard src/*.cpp)
 OBJS_D	=	objs
-OBJ	=	$(SRC:srcs/%.cpp=$(OBJS_D)/%.o)
+OBJ	=	$(SRC:src/%.cpp=$(OBJS_D)/%.o)
 
 UNAME	:=	$(shell uname)
 
-$(OBJS_D)/%.o:srcs/%.cpp
+$(OBJS_D)/%.o:src/%.cpp
 			@mkdir -p $(OBJS_D)
 			$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
