@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:14:31 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 22:34:09 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:19:55 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define PHONEBOOK_HPP
 
 #include <iostream>
-#include "contacts.hpp"
+#include "Contacts.hpp"
 
 #define SIZE 8
 

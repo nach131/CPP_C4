@@ -6,12 +6,12 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 19:06:06 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 19:40:24 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:19:04 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
-#include "colors.hpp"
+#include "PhoneBook.hpp"
+#include "Colors.hpp"
 
 void menu(int type)
 {

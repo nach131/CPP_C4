@@ -6,12 +6,12 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:16:51 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/11 22:06:12 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:19:20 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
-#include "colors.hpp"
+#include "PhoneBook.hpp"
+#include "Colors.hpp"
 #include <chrono>
 #include <thread>
 
