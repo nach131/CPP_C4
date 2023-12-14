@@ -6,7 +6,7 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2023/12/13 22:27:40 by nmota-bu         ###   ########.fr        #
+#    Updated: 2023/12/14 19:30:08 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ MAKEFLAGS += --silent	# Silence makefile [Commented by default]\n
 
 # ═══ NAMES ═══════════════════════════════════════════════════════════════════#
 
-NAME	=	zombie
+NAME	=	BraiiiiiiinnnzzzZ...
 
 # ═══ COMPILATE ═══════════════════════════════════════════════════════════════#
 
@@ -41,6 +41,7 @@ $(NAME):	$(OBJ)
 			@printf "$(DONE)DONE$(RESET)\n"
 
 # test:		re
+#			@echo '#include "Zombie.hpp"\n\nint main(void)\n{\n\tZombie one("Pedro");\n\tone.announce();\n\n\tZombie *two = newZombie("Marvin");\n\ttwo->announce();\n\tdelete two;\n\n\trandomChump("Goku");\n}' > src/main.cpp
 # 			@printf "$(CYAN)Testing $(MAGENTA)$(NAME)$(RESET)\n"
 # 			@printf "$(CYAN)░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$(RESET)\n\n"
 # 			@./$(NAME) "ohhh Yeah, this is uppercase!!!"
