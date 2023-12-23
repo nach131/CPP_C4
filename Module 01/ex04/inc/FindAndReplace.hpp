@@ -6,9 +6,12 @@
 class FindAndReplace
 {
 private:
+	FindAndReplace operator++();
+	int _number;
 	std::string _fileIn;
 	std::string _fileOut;
-	void print(std::string, std::string);
+	void _print(std::string, std::string);
+	int _ctrl(bool, bool, std::string, std::string);
 
 public:
 	FindAndReplace(std::string);
