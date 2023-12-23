@@ -1,6 +1,14 @@
 #ifndef COLORS_H
 #define COLORS_H
 
+typedef enum e_error
+{
+	DANGER,
+	WARNING,
+	INFO,
+	SUCCESS
+} t_error;
+
 #define RESET "\x1B[0m"
 
 // # Regular Colors
@@ -13,5 +21,10 @@
 #define ORANGE "\033[1;31m"
 #define WHITE "\033[0;37m"
 #define BLACK "\x1B[30m"
+
+#define ERROR "\x1B[41m\x1B[1m\x1B[37m"
+#define OK "\x1B[44m\x1B[1;97m"
+
+void ft_message(int err, std::string msg);
 
 #endif
