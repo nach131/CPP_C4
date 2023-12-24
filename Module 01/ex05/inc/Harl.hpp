@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/16 19:27:51 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/23 21:24:15 by nmota-bu         ###   ########.fr       */
+/*   Created: 2023/12/23 21:23:09 by nmota-bu          #+#    #+#             */
+/*   Updated: 2023/12/24 10:12:24 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#ifndef HARL_H
+#define HARL_H
 
 #include <iostream>
 
-class Weapon
+class Harl
 {
 private:
-	std::string _type;
+	void debug();
+	void inf();
+	void warning();
+	void error();
+	void typErr();
 
 public:
-	Weapon(std::string);
-	~Weapon();
-	const std::string &getType();
-	void setType(std::string);
+	void menu();
+	void complain(std::string);
 };
 
 #endif
