@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 22:23:26 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/14 19:06:24 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/24 19:59:09 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ private:
 	std::string _name;
 
 public:
-	Zombie(std::string name);
-	~Zombie(void);
-	void announce(void);
+	Zombie(std::string);
+	~Zombie();
+	void announce();
 };
 
 Zombie *newZombie(std::string name);

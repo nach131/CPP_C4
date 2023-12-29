@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 22:23:26 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/15 15:28:53 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/24 19:58:44 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ private:
 
 public:
 	Zombie();
-	Zombie(std::string name);
+	Zombie(std::string);
 	~Zombie();
 	void announce();
-	void setName(std::string name);
+	void setName(std::string);
 };
 
 Zombie *zombieHorde(int N, std::string name);
