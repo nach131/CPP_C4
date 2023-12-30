@@ -6,7 +6,7 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2023/12/29 12:11:20 by nmota-bu         ###   ########.fr        #
+#    Updated: 2023/12/30 16:13:37 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,12 @@ MAKEFLAGS += --silent	# Silence makefile [Commented by default]\n
 
 # ═══ NAMES ═══════════════════════════════════════════════════════════════════#
 
-NAME	=	tomate
+NAME	=	OCF
 
 # ═══ COMPILATE ═══════════════════════════════════════════════════════════════#
 
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors 
-FSANIT	= -fsanitize=address
+# FSANIT	= -fsanitize=address
 CC		= c++
 INC		= -I inc
 RM		= rm -rf

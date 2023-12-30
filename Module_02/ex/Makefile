@@ -6,7 +6,7 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2023/12/15 15:44:11 by nmota-bu         ###   ########.fr        #
+#    Updated: 2023/12/30 15:44:13 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,13 @@ MAKEFLAGS += --silent	# Silence makefile [Commented by default]\n
 
 # ═══ NAMES ═══════════════════════════════════════════════════════════════════#
 
-NAME	=	HI_THIS_IS_BRAIN
+NAME	=	OCF
 
 # ═══ COMPILATE ═══════════════════════════════════════════════════════════════#
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 CC		= c++
+# FSANIT 	= -fsanitize=address
 INC		= -I inc
 RM		= rm -rf
 
