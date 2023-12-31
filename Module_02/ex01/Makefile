@@ -6,7 +6,7 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2023/12/30 18:12:51 by nmota-bu         ###   ########.fr        #
+#    Updated: 2023/12/31 13:53:33 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ MAKEFLAGS += --silent	# Silence makefile [Commented by default]\n
 
 # ═══ NAMES ═══════════════════════════════════════════════════════════════════#
 
-NAME	=	My_First_Class_in_Orthodox_Canonical_Form
+NAME	=	Towards_a_more_useful_fixed-point_number_class
 
 # ═══ COMPILATE ═══════════════════════════════════════════════════════════════#
 
@@ -41,16 +41,24 @@ $(NAME):	$(OBJ)
 			$(CC) $(CFLAGS) $(FSANIT) $(OBJ) -o $(NAME)
 			@printf "$(DONE)DONE$(RESET)\n"
 
-# test:		re
-# 			@printf "$(CYAN)Testing $(MAGENTA)$(NAME)$(RESET)\n"
-# 			@printf "$(CYAN)░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$(RESET)\n\n"
-# 			@./$(NAME) "ohhh Yeah, this is uppercase!!!"
-# 			@printf "\n$(CYAN)░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$(RESET)\n"
-# 			@printf "$(CYAN)Finished Test...$(RESET)\n\n"
-# 			@$(MAKE) show
-# 			@$(MAKE) fclean
+test:		re
+			@printf "$(CYAN)Testing $(MAGENTA)$(NAME)$(RESET)\n"
+			@printf "$(CYAN)░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$(RESET)\n\n"
+			@./$(NAME)
+			@printf "\n$(CYAN)░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$(RESET)\n"
+			@printf "$(CYAN)Finished Test...$(RESET)\n\n"
+			@$(MAKE) show
+			@$(MAKE) fclean
 
 all:		$(NAME)
+
+leaks:		re
+			@printf "$(CYAN)Testing with Leaks...?$(MAGENTA)$(NAME)$(RESET)\n"
+			@printf "$(CYAN)░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$(RESET)\n\n"
+			@leaks -atExit -- ./$(NAME)
+			@printf "\n$(CYAN)░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$(RESET)\n"
+			@printf "$(CYAN)Finished Test with Leaks...?$(RESET)\n\n"
+			@$(MAKE) fclean
 
 clean:
 			$(RM) $(OBJS_D)
