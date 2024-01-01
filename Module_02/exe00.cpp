@@ -1,10 +1,4 @@
 #include <iostream>
-#define RED "\033[0;31m"
-#define GREEN "\033[0;32m"
-#define YELLOW "\033[0;33m"
-#define CYAN "\033[0;36m"
-#define RESET "\x1B[0m"
-#define ORANGE "\033[1;31m"
 
 class Fixed
 {
@@ -14,48 +8,50 @@ private:
 
 public:
 	Fixed();
-	Fixed(const Fixed &);
-	Fixed operator=(const Fixed &);
 	~Fixed();
+	Fixed(const Fixed &);
+	Fixed &operator=(const Fixed &);
+
 	int getRawBits() const;
-	// void setRawBits(int const raw);
+	void setRawBits(int const);
 };
 
-Fixed::Fixed() : _num(0)
-{
-	std::cout << GREEN << "Default constructor called" << RESET << std::endl;
-}
+Fixed::Fixed() : _num(0) { std::cout << "Default constructor called" << std::endl; }
 
-Fixed::Fixed(const Fixed &rhs)
-{
-	std::cout << CYAN << "Copy constructor called" << RESET << std::endl;
-	_num = int(rhs._num);
-}
+Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
 
-Fixed Fixed::operator=(const Fixed &rhs)
+Fixed::Fixed(const Fixed &tmp)
 {
-	std::cout << YELLOW << "Assignation operator called" << RESET << std::endl;
-	if (this != &rhs)
-		_num = rhs._num;
-	return *this;
+	std::cout << "Copy constructor called" << std::endl;
+	_num = tmp;
 }
-
-Fixed::~Fixed() { std::cout << RED << "Destructor called" << RESET << std::endl; }
 
 int Fixed::getRawBits() const
 {
-	std::cout << ORANGE << "getRawBits member function called" << RESET << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return _num;
 }
 
-int main(void)
+Fixed &Fixed::operator=(const Fixed &tmp)
+{
+	std::cout << "Assignation operator called" << std::endl;
+	if (this != &tmp)
+		_num = tmp.getRawBits();
+	return *this;
+}
+
+void Fixed::setRawBits(int const raw) { num = raw; }
+
+int main()
 {
 	Fixed a;
 	Fixed b(a);
 	Fixed c;
+	c = a;
 
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
+
 	return 0;
 }

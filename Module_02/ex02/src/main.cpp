@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 15:20:17 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/01 13:09:51 by nmota-bu         ###   ########.fr       */
+/*   Created: 2023/12/13 22:22:20 by nmota-bu          #+#    #+#             */
+/*   Updated: 2023/12/31 15:31:48 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#include "Fixed.hpp"
+#include "Colors_ft.hpp"
 
-#include <iostream>
-
-class Fixed
+int main(void)
 {
-private:
-	int _num;
-	static const int _bits = 8;
+	Fixed a;
+	// Fixed const b(Fixed(5.05f) * Fixed(2));
 
-public:
-	Fixed();
-	Fixed(const Fixed &);
-	~Fixed();
-	Fixed &operator=(const Fixed &);
+	// std::cout << a << std::endl;
+	// std::cout << ++a << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << a++ << std::endl;
+	// std::cout << a << std::endl;
 
-	int getRawBits() const;
-	void setRawBits(int const);
-};
+	// std::cout << b << std::endl;
 
-#endif
+	// std::cout << Fixed::max(a, b) << std::endl;
+	return 0;
+}

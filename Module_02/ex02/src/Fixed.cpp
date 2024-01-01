@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:28:56 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/01 13:19:19 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2023/12/31 14:54:19 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed::Fixed(const float num) : _num(static_cast<int>(roundf(num * (1 << _bits))
 Fixed::Fixed(const Fixed &tmp)
 {
 	std::cout << CYAN << "Copy constructor called" << RESET << std::endl;
-	*this = tmp;
+	_num = tmp._num;
 }
 
 Fixed::~Fixed() { std::cout << RED << "Destructor called" << RESET << std::endl; }

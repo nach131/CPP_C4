@@ -8,33 +8,39 @@ private:
 
 public:
 	Fixed();
+	Fixed(const Fixed &);
 	~Fixed();
-	Fixed(Fixed const &);
-	Fixed operator=(const Fixed &);
+	Fixed &operator=(const Fixed &);
+
+	int getRawBits() const;
+	void setRawBits(int const);
 };
 
-Fixed::Fixed() : _num(0)
+Fixed::Fixed() : _num(0) { std::cout << "Default constructor called" << std::endl; }
+
+Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
+
+Fixed::Fixed(const Fixed &tmp)
 {
-	std::cout << "Constr: " << _num << std::endl;
-}
-Fixed::~Fixed()
-{
-	std::cout << "Destructor" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
+	_num = tmp.getRawBits();
 }
 
-Fixed Fixed::operator=(const Fixed &tmp)
+int Fixed::getRawBits() const
 {
+	std::cout << "getRawBits member function called" << std::endl;
+	return _num;
+}
+
+Fixed &Fixed::operator=(const Fixed &tmp)
+{
+	std::cout << "Assignation operator called" << std::endl;
 	if (this != &tmp)
-		_num = tmp._num;
-	std::cout << "Operador copia: " << _num << std::endl;
+		_num = tmp.getRawBits();
 	return *this;
 }
 
-Fixed::Fixed(Fixed const &tmp)
-{
-	_num = tmp._num;
-	std::cout << "Copia : " << _num << std::endl;
-}
+void Fixed::setRawBits(int const raw) { num = raw; }
 
 int main()
 {
@@ -42,4 +48,10 @@ int main()
 	Fixed b(a);
 	Fixed c;
 	c = a;
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+
+	return 0;
 }
