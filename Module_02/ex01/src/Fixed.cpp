@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:28:56 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/01 13:19:19 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/01 20:24:21 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ Fixed::Fixed(const int num) : _num(num << _bits)
 	std::cout << GREEN << "Int constructor called" << RESET << std::endl;
 }
 
-Fixed::Fixed(const float num) : _num(static_cast<int>(roundf(num * (1 << _bits))))
+Fixed::Fixed(const float num) : _num(roundf(num * (1 << _bits)))
 {
 	std::cout << GREEN << "Float constructor called" << RESET << std::endl;
 }
+
+Fixed::~Fixed() { std::cout << RED << "Destructor called" << RESET << std::endl; }
 
 Fixed::Fixed(const Fixed &tmp)
 {
 	std::cout << CYAN << "Copy constructor called" << RESET << std::endl;
 	*this = tmp;
 }
-
-Fixed::~Fixed() { std::cout << RED << "Destructor called" << RESET << std::endl; }
 
 Fixed &Fixed::operator=(const Fixed &tmp)
 {
@@ -52,7 +52,7 @@ void Fixed::setRawBits(int const num)
 	_num = num;
 }
 
-float Fixed::toFloat() const { return static_cast<float>(_num) / (1 << _bits); }
+float Fixed::toFloat() const { return (float)_num / (1 << _bits); }
 
 int Fixed::toInt() const { return _num >> _bits; }
 

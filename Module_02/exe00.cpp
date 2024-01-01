@@ -8,8 +8,8 @@ private:
 
 public:
 	Fixed();
-	~Fixed();
 	Fixed(const Fixed &);
+	~Fixed();
 	Fixed &operator=(const Fixed &);
 
 	int getRawBits() const;
@@ -23,7 +23,7 @@ Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
 Fixed::Fixed(const Fixed &tmp)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	_num = tmp;
+	_num = tmp.getRawBits();
 }
 
 int Fixed::getRawBits() const
