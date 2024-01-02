@@ -6,44 +6,24 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:28:56 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/02 11:37:30 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/02 14:23:47 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include "Colors_ft.hpp"
 
-Fixed::Fixed() : _num(0)
-{
-	std::cout << GREEN << "Default constructor called" << RESET << std::endl;
-}
+Fixed::Fixed() : _num(0) {}
 
-Fixed::Fixed(const int num) : _num(num << _bits)
-{
-	std::cout << GREEN << "Int constructor called" << RESET << std::endl;
-}
+Fixed::Fixed(const int num) : _num(num << _bits) {}
 
-Fixed::Fixed(const float num) : _num(roundf(num * (1 << _bits)))
-{
-	std::cout << GREEN << "Float constructor called" << RESET << std::endl;
-}
+Fixed::Fixed(const float num) : _num(roundf(num * (1 << _bits))) {}
 
-Fixed::~Fixed() { std::cout << RED << "Destructor called" << RESET << std::endl; }
+Fixed::~Fixed() {}
 
-Fixed::Fixed(const Fixed &tmp)
-{
-	std::cout << CYAN << "Copy constructor called" << RESET << std::endl;
-	*this = tmp;
-}
+Fixed::Fixed(const Fixed &tmp) { *this = tmp; }
 
-Fixed &Fixed::operator=(const Fixed &tmp)
-{
-	std::cout << YELLOW << "Assignation operator called" << RESET << std::endl;
-	if (this != &tmp)
-		_num = tmp._num;
-	return *this;
-}
-
+// Comparacion
 bool Fixed::operator>(const Fixed &tmp) const { return _num > tmp._num; }
 bool Fixed::operator<(const Fixed &tmp) const { return _num < tmp._num; }
 bool Fixed::operator>=(const Fixed &tmp) const { return _num >= tmp._num; }
@@ -51,16 +31,78 @@ bool Fixed::operator<=(const Fixed &tmp) const { return _num <= tmp._num; }
 bool Fixed::operator==(const Fixed &tmp) const { return _num == tmp._num; }
 bool Fixed::operator!=(const Fixed &tmp) const { return _num != tmp._num; }
 
+// Asignacion
+Fixed &Fixed::operator=(const Fixed &tmp)
+{
+	if (this != &tmp)
+		_num = tmp._num;
+	return *this;
+}
+
+// Aritmeticos
+Fixed Fixed::operator+(const Fixed &tmp) const { return this->toFloat() + tmp.toFloat(); }
+Fixed Fixed::operator-(const Fixed &tmp) const { return this->toFloat() - tmp.toFloat(); }
+Fixed Fixed::operator*(const Fixed &tmp) const { return this->toFloat() * tmp.toFloat(); }
+Fixed Fixed::operator/(const Fixed &tmp) const { return this->toFloat() / tmp.toFloat(); }
+
+// Prefijo
+Fixed &Fixed::operator++()
+{
+	_num++;
+	return *this;
+}
+Fixed &Fixed::operator--()
+{
+	_num--;
+	return *this;
+}
+// // Sufijo
+Fixed Fixed::operator++(int)
+{
+	Fixed res = *this;
+	++(*this);
+	return res;
+}
+Fixed Fixed::operator--(int)
+{
+	Fixed res = *this;
+	--(*this);
+	return res;
+}
+
 int Fixed::getRawBits() const { return _num; }
 
-void Fixed::setRawBits(int const num)
-{
-	std::cout << MAGENTA << "setRawBits member function called" << RESET << std::endl;
-	_num = num;
-}
+void Fixed::setRawBits(int const num) { _num = num; }
 
 float Fixed::toFloat() const { return (float)_num / (1 << _bits); }
 
 int Fixed::toInt() const { return _num >> _bits; }
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
 
 std::ostream &operator<<(std::ostream &out, Fixed const &tmp) { return out << tmp.toFloat(); }
