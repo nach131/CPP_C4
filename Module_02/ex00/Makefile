@@ -6,7 +6,7 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2024/01/01 14:24:48 by nmota-bu         ###   ########.fr        #
+#    Updated: 2024/01/02 21:11:39 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,9 +48,9 @@ all:		$(NAME)
 test:		re
 			@clear
 			@printf "$(CYAN)Testing $(MAGENTA)$(NAME)$(RESET)\n"
-			@printf "$(CYAN)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '█'
+			@printf "$(CYAN)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▀'
 			@./$(NAME)
-			@printf "$(CYAN)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '█'
+			@printf "$(CYAN)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▄'
 			@printf "$(CYAN)Finished Test...$(RESET)\n\n"
 			@$(MAKE) show
 			@$(MAKE) fclean
@@ -58,9 +58,9 @@ test:		re
 leaks:		re
 			@clear
 			@printf "$(CYAN)Testing with Leaks...? $(MAGENTA)$(NAME)$(RESET)\n"
-			@printf "$(YELLOW)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▍'
+			@printf "$(YELLOW)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▀'
 			@leaks -atExit -- ./$(NAME)
-			@printf "$(YELLOW)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▍'
+			@printf "$(YELLOW)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▄'
 			@printf "$(CYAN)Finished Test with Leaks...?$(RESET)\n\n"
 			@$(MAKE) fclean
 
