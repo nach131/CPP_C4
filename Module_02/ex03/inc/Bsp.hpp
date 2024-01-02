@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*   bsp.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/30 15:47:00 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/30 15:47:50 by nmota-bu         ###   ########.fr       */
+/*   Created: 2024/01/02 17:37:10 by nmota-bu          #+#    #+#             */
+/*   Updated: 2024/01/02 17:38:01 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef BSP_HPP
+#define BSP_HPP
 
-Fixed::Fixed() {}
-Fixed::~Fixed() {}
+#include "Point.hpp"
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);
+
+#endif

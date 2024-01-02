@@ -6,31 +6,33 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2023/12/30 15:44:13 by nmota-bu         ###   ########.fr        #
+#    Updated: 2024/01/02 17:35:29 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+get_terminal_width = $(shell tput cols)
 
 MAKEFLAGS += --silent	# Silence makefile [Commented by default]\n
 
 # ═══ NAMES ═══════════════════════════════════════════════════════════════════#
 
-NAME	=	OCF
+NAME	=	BSP
 
 # ═══ COMPILATE ═══════════════════════════════════════════════════════════════#
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors 
+# FSANIT	= -fsanitize=address
 CC		= c++
-# FSANIT 	= -fsanitize=address
 INC		= -I inc
 RM		= rm -rf
 
 # ═══ DIRECTORIES ═════════════════════════════════════════════════════════════#
 
-SRC	=	$(wildcard src/*.cpp)
-OBJS_D	=	objs
-OBJ	=	$(SRC:src/%.cpp=$(OBJS_D)/%.o)
+SRC		= $(wildcard src/*.cpp)
+OBJS_D	= objs
+OBJ		= $(SRC:src/%.cpp=$(OBJS_D)/%.o)
 
-UNAME	:=	$(shell uname)
+UNAME	:= $(shell uname)
 
 $(OBJS_D)/%.o:src/%.cpp
 			@mkdir -p $(OBJS_D)
@@ -41,17 +43,27 @@ $(NAME):	$(OBJ)
 			$(CC) $(CFLAGS) $(FSANIT) $(OBJ) -o $(NAME)
 			@printf "$(DONE)DONE$(RESET)\n"
 
-# test:		re
-# 			@printf "$(CYAN)Testing $(MAGENTA)$(NAME)$(RESET)\n"
-# 			@printf "$(CYAN)░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$(RESET)\n\n"
-# 			@./$(NAME) "ohhh Yeah, this is uppercase!!!"
-# 			@printf "\n$(CYAN)░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░$(RESET)\n"
-# 			@printf "$(CYAN)Finished Test...$(RESET)\n\n"
-# 			@$(MAKE) show
-# 			@$(MAKE) fclean
-
 all:		$(NAME)
 
+test:		re
+			@clear
+			@printf "$(CYAN)Testing $(MAGENTA)$(NAME)$(RESET)\n"
+			@printf "$(CYAN)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▀'
+			@./$(NAME)
+			@printf "$(CYAN)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▄'
+			@printf "$(CYAN)Finished Test...$(RESET)\n\n"
+			@$(MAKE) show
+			@$(MAKE) fclean
+
+leaks:		re
+			@clear
+			@printf "$(CYAN)Testing with Leaks...? $(MAGENTA)$(NAME)$(RESET)\n"
+			@printf "$(MAGENTA)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▀'
+			@leaks -atExit -- ./$(NAME)
+			@printf "$(MAGENTA)%*s\n$(RESET)" $(call get_terminal_width) | tr ' ' '▄'
+			@printf "$(CYAN)Finished Test with Leaks...?$(RESET)\n\n"
+			@$(MAKE) fclean
+			
 clean:
 			$(RM) $(OBJS_D)
 			@printf "$(DEL)Cleaning objs$(RESET)\n"
@@ -72,7 +84,7 @@ show:
 	@printf "SRC	: $(MAGENTA)$(SRC)$(GREEN)\n"
 	@printf "OBJ	: $(MAGENTA)[$(OBJS_D)] ➟ $(OBJ)$(RESET)\n\n"
 
-.PHONY: all test re
+.PHONY: all test re show leaks
 
 # ═══ COLORS ══════════════════════════════════════════════════════════════════#
 

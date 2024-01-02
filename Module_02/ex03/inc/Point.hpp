@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 22:22:20 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/30 15:47:36 by nmota-bu         ###   ########.fr       */
+/*   Created: 2024/01/02 14:54:51 by nmota-bu          #+#    #+#             */
+/*   Updated: 2024/01/02 18:23:40 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef POINT_HPP
+#define POINT_HPP
 
-int main(void)
+#include "Fixed.hpp"
+#include <iostream>
+
+class Point
 {
-	Fixed a;
-}
+private:
+	const Fixed _x;
+	const Fixed _y;
+
+public:
+	Point();
+	Point(const float, const float);
+	Point(const Point &);
+	Point &operator=(const Point &);
+	~Point();
+
+	Fixed getX() const;
+	Fixed getY() const;
+
+	void getXY() const;
+};
+
+#endif
