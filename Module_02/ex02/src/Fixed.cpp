@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:28:56 by nmota-bu          #+#    #+#             */
-/*   Updated: 2023/12/31 14:54:19 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/02 11:37:30 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ Fixed::Fixed(const int num) : _num(num << _bits)
 	std::cout << GREEN << "Int constructor called" << RESET << std::endl;
 }
 
-Fixed::Fixed(const float num) : _num(static_cast<int>(roundf(num * (1 << _bits))))
+Fixed::Fixed(const float num) : _num(roundf(num * (1 << _bits)))
 {
 	std::cout << GREEN << "Float constructor called" << RESET << std::endl;
 }
 
+Fixed::~Fixed() { std::cout << RED << "Destructor called" << RESET << std::endl; }
+
 Fixed::Fixed(const Fixed &tmp)
 {
 	std::cout << CYAN << "Copy constructor called" << RESET << std::endl;
-	_num = tmp._num;
+	*this = tmp;
 }
-
-Fixed::~Fixed() { std::cout << RED << "Destructor called" << RESET << std::endl; }
 
 Fixed &Fixed::operator=(const Fixed &tmp)
 {
@@ -44,6 +44,13 @@ Fixed &Fixed::operator=(const Fixed &tmp)
 	return *this;
 }
 
+bool Fixed::operator>(const Fixed &tmp) const { return _num > tmp._num; }
+bool Fixed::operator<(const Fixed &tmp) const { return _num < tmp._num; }
+bool Fixed::operator>=(const Fixed &tmp) const { return _num >= tmp._num; }
+bool Fixed::operator<=(const Fixed &tmp) const { return _num <= tmp._num; }
+bool Fixed::operator==(const Fixed &tmp) const { return _num == tmp._num; }
+bool Fixed::operator!=(const Fixed &tmp) const { return _num != tmp._num; }
+
 int Fixed::getRawBits() const { return _num; }
 
 void Fixed::setRawBits(int const num)
@@ -52,7 +59,7 @@ void Fixed::setRawBits(int const num)
 	_num = num;
 }
 
-float Fixed::toFloat() const { return static_cast<float>(_num) / (1 << _bits); }
+float Fixed::toFloat() const { return (float)_num / (1 << _bits); }
 
 int Fixed::toInt() const { return _num >> _bits; }
 

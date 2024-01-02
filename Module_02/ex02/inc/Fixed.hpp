@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:20:17 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/01 13:15:57 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/02 11:36:19 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ public:
 	Fixed(const float);
 
 	Fixed &operator=(const Fixed &);
+
+	bool operator>(const Fixed &) const;
+	bool operator<(const Fixed &) const;
+	bool operator>=(const Fixed &) const;
+	bool operator<=(const Fixed &) const;
+	bool operator==(const Fixed &) const;
+	bool operator!=(const Fixed &) const;
 
 	int getRawBits() const;
 	void setRawBits(int const);
