@@ -6,26 +6,34 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 21:28:41 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/05 15:08:00 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/05 19:51:31 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "Colors_ft.hpp"
 
-ClapTrap::ClapTrap() : _hit(10), _energy(10), _attack_damage(0) { std::cout << GREEN << "Default constructor called without parameter" << RESET << std::endl; }
-ClapTrap::ClapTrap(std::string name) : _name(name), _hit(10), _energy(10), _attack_damage(0) { std::cout << GREEN << "Default constructor called" << RESET << std::endl; }
-ClapTrap::~ClapTrap() { std::cout << RED << "Destructor called" << RESET << std::endl; }
+ClapTrap::ClapTrap() : _hit(10), _energy(10), _attack_damage(0)
+{
+	std::cout << CLAP << "ClapTrap:" << GREEN << " Default constructor called without parameter" << RESET << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit(10), _energy(10), _attack_damage(0)
+{
+	std::cout << CLAP << "ClapTrap:" << GREEN << " Default constructor called" << RESET << std::endl;
+}
+
+ClapTrap::~ClapTrap() { std::cout << CLAP << "ClapTrap:" << RED << " Destructor called" << RESET << std::endl; }
 
 ClapTrap::ClapTrap(const ClapTrap &tmp)
 {
-	std::cout << CYAN << "Copy constructor called" << RESET << std::endl;
+	std::cout << CLAP << "ClapTrap:" << CYAN << " Copy constructor called" << RESET << std::endl;
 	*this = tmp;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &tmp)
 {
-	std::cout << YELLOW << "Assignation operator called" << RESET << std::endl;
+	std::cout << CLAP << "ClapTrap:" << YELLOW << " Assignation operator called" << RESET << std::endl;
 	if (this != &tmp)
 	{
 		_name = tmp._name;
