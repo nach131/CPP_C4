@@ -6,9 +6,12 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 17:11:42 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/05 20:28:39 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/06 21:04:42 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -23,3 +26,5 @@ public:
 	ScavTrap &operator=(const ScavTrap &);
 	void guardGate();
 };
+
+#endif

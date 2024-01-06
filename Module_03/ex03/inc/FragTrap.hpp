@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 17:11:42 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/06 21:02:46 by nmota-bu         ###   ########.fr       */
+/*   Created: 2024/01/05 20:40:43 by nmota-bu          #+#    #+#             */
+/*   Updated: 2024/01/06 21:17:52 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 private:
 public:
-	ScavTrap();
-	ScavTrap(std::string);
-	~ScavTrap();
-	ScavTrap(const ScavTrap &);
-	ScavTrap &operator=(const ScavTrap &);
-	void guardGate();
+	FragTrap();
+	FragTrap(std::string);
+	FragTrap(const FragTrap &);
+	~FragTrap();
+
+	FragTrap &operator=(const FragTrap &);
+
+	void highFivesGuys();
 };
 
 #endif
