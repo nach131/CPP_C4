@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 22:22:20 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/06 12:32:58 by nmota-bu         ###   ########.fr       */
+/*   Created: 2024/01/05 20:40:43 by nmota-bu          #+#    #+#             */
+/*   Updated: 2024/01/06 00:57:34 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-int main(void)
+class FragTrap : public ClapTrap
 {
+private:
+public:
+	FragTrap();
+	FragTrap(std::string);
+	FragTrap(const FragTrap &);
+	~FragTrap();
 
-	ClapTrap a("Goku");
-	// ClapTrap b(a);
-	ScavTrap c;
-	ScavTrap Sa("Vegeta");
-	Sa.guardGate();
-	// c = b;
-	// a.takeDamage(12);
-	// a.attack("Vegeta");
-	// a.beRepaired(10);
-	// ScavTrap Sb(Sa);
-	// ScavTrap Sc;
-	// Sc = Sa;
+	FragTrap &operator=(const FragTrap &);
 
-	// a.print();
-	c.print();
-	Sa.print();
-
-	return 0;
-}
+	void highFivesGuys();
+};

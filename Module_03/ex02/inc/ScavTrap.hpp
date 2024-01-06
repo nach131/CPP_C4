@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/13 22:22:20 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/06 12:32:58 by nmota-bu         ###   ########.fr       */
+/*   Created: 2024/01/05 17:11:42 by nmota-bu          #+#    #+#             */
+/*   Updated: 2024/01/06 00:20:12 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-int main(void)
+class ScavTrap : public ClapTrap
 {
-
-	ClapTrap a("Goku");
-	// ClapTrap b(a);
-	ScavTrap c;
-	ScavTrap Sa("Vegeta");
-	Sa.guardGate();
-	// c = b;
-	// a.takeDamage(12);
-	// a.attack("Vegeta");
-	// a.beRepaired(10);
-	// ScavTrap Sb(Sa);
-	// ScavTrap Sc;
-	// Sc = Sa;
-
-	// a.print();
-	c.print();
-	Sa.print();
-
-	return 0;
-}
+private:
+public:
+	ScavTrap();
+	ScavTrap(std::string);
+	~ScavTrap();
+	ScavTrap(const ScavTrap &);
+	ScavTrap &operator=(const ScavTrap &);
+	void guardGate();
+};
