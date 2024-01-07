@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 22:22:20 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/07 19:19:46 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/07 22:06:58 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,21 @@ int main(void)
 {
 	{
 		std::cout << "\t\t" << ERROR << "[ Mandatory ]" << std::endl;
+
+		const Animal *animals[6] = {
+			new Dog(),
+			new Dog(),
+			new Dog(),
+			new Cat(),
+			new Cat(),
+			new Cat(),
+		};
+
+		for (size_t i = 0; i < 6; i++)
+			delete animals[i];
+	}
+	{
+		std::cout << "\t\t" << ERROR << "[ Ex00 ]" << std::endl;
 		const Animal *meta = new Animal();
 		const Animal *j = new Dog();
 		const Animal *i = new Cat();
@@ -36,36 +51,36 @@ int main(void)
 		delete j;
 		delete i;
 	}
-	{
-		std::cout << "\t\t" << ERROR << "[ Wrong Class ]" << RESET << std::endl;
+	// {
+	// 	std::cout << "\t\t" << ERROR << "[ Wrong Class ]" << RESET << std::endl;
 
-		const WrongAnimal *meta = new WrongAnimal();
-		const WrongAnimal *i = new WrongCat();
+	// 	const WrongAnimal *meta = new WrongAnimal();
+	// 	const WrongAnimal *i = new WrongCat();
 
-		std::cout << i->getType() << " " << std::endl;
+	// 	std::cout << i->getType() << " " << std::endl;
 
-		i->makeSound(); // will output the cat sound! j->makeSound();
-		meta->makeSound();
+	// 	i->makeSound(); // will output the cat sound! j->makeSound();
+	// 	meta->makeSound();
 
-		delete meta;
-		delete i;
-	}
-	{
-		std::cout << "\t\t" << ERROR << "[ TEST Copy & Operator= ]" << RESET << std::endl;
-		const Animal *cat = new Cat();
+	// 	delete meta;
+	// 	delete i;
+	// }
+	// {
+	// 	std::cout << "\t\t" << ERROR << "[ TEST Copy & Operator= ]" << RESET << std::endl;
+	// 	const Animal *cat = new Cat();
 
-		// Usar el constructor de copia
-		const Cat *copyCat = new Cat(*static_cast<const Cat *>(cat));
-		// Usar el operador de asignación
-		Cat assignedCat;
-		assignedCat = *static_cast<const Cat *>(cat);
+	// 	// Usar el constructor de copia
+	// 	const Cat *copyCat = new Cat(*static_cast<const Cat *>(cat));
+	// 	// Usar el operador de asignación
+	// 	Cat assignedCat;
+	// 	assignedCat = *static_cast<const Cat *>(cat);
 
-		std::cout << cat->getType() << " " << std::endl;
-		std::cout << copyCat->getType() << " " << std::endl;
-		std::cout << assignedCat.getType() << " " << std::endl;
+	// 	std::cout << cat->getType() << " " << std::endl;
+	// 	std::cout << copyCat->getType() << " " << std::endl;
+	// 	std::cout << assignedCat.getType() << " " << std::endl;
 
-		delete cat;
-		delete copyCat;
-	}
+	// 	delete cat;
+	// 	delete copyCat;
+	// }
 	return 0;
 }
