@@ -6,14 +6,14 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:23:51 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/07 15:03:39 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:18:21 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Colors_ft.hpp"
 
-Animal::Animal()
+Animal::Animal() _type("")
 {
 	std::cout << ANIMAL_C << "[Animal]" << GREEN << " - Default constructor called without parameter" << RESET << std::endl;
 }
