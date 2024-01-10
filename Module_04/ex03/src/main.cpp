@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:20:11 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/10 13:08:54 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:31:54 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int main(void)
 		me->equip(Ma);
 		me->equip(Me);
 		me->print();
-		// me->unequip(0);
+		me->unequip(0);
 		delete me;
+
 		// delete Ma;
 		// std::cout << me._inventory[0]->getType() << std::endl;
 	}

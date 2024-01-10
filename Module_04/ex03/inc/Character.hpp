@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:26:24 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/09 21:33:28 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:29:02 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Character : public ICharacter
 private:
 	std::string _name;
 	AMateria *_inventory[IMAX];
+	AMateria *_delete[IMAX];
 
 public:
 	Character();

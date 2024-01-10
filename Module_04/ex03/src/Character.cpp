@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:36:29 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/10 14:17:40 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:38:02 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,20 @@ Character::Character() : _name("")
 {
 	std::cout << CHARA << "[Character]" << GREEN << " - Constructor without parameter" << RESET << std::endl;
 	for (size_t i = 0; i < IMAX; i++)
+	{
 		this->_inventory[i] = nullptr;
+		this->_delete[i] = nullptr;
+	}
 }
 
 Character::Character(const std::string &name) : _name(name)
 {
 	std::cout << CHARA << "[Character]" << GREEN << " - Constructor [ name ]" << RESET << std::endl;
 	for (size_t i = 0; i < IMAX; i++)
+	{
 		this->_inventory[i] = nullptr;
+		this->_delete[i] = nullptr;
+	}
 }
 
 Character::Character(const Character &tmp)
@@ -42,6 +48,12 @@ Character::~Character()
 		std::cout << this->_inventory[i] << std::endl;
 		if (this->_inventory[i] != nullptr)
 			delete this->_inventory[i];
+
+		for (size_t i = 0; i < IMAX; i++)
+		{
+			if (this->_delete[i] != nullptr)
+				delete this->_delete[i];
+		}
 	}
 }
 
@@ -87,7 +99,23 @@ void Character::unequip(int idx)
 	{
 		std::cout << this->_inventory[idx]->getType() << ": has been deleted from inventory" << std::endl;
 		// delete this->_inventory[idx];
-		this->_inventory[idx] = nullptr;
+		// this->_inventory[idx] = nullptr;
+		size_t i = 0;
+		for (i = 0; i < IMAX; i++)
+		{
+			if (this->_delete[i] == nullptr)
+			{
+				this->_delete[i] = this->_inventory[idx];
+				// this->_inventory[idx] = nullptr;
+				break;
+			}
+		}
+		if (i == IMAX)
+		{
+			delete this->_delete[0];
+			this->_delete[0] = this->_inventory[idx];
+			this->_inventory[idx] = nullptr;
+		}
 	}
 	else
 		std::cout << ERROR << " position: " << idx << " is empty " << RESET << std::endl;

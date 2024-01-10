@@ -6,7 +6,7 @@
 #    By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 17:19:17 by nmota-bu          #+#    #+#              #
-#    Updated: 2024/01/09 12:24:12 by nmota-bu         ###   ########.fr        #
+#    Updated: 2024/01/10 16:30:54 by nmota-bu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME	=	Interface_recap
 
 # ═══ COMPILATE ═══════════════════════════════════════════════════════════════#
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors 
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic-errors -g3
 # FSANIT	= -fsanitize=address
 CC		= c++
 INC		= -I inc
