@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:20:11 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/10 16:31:54 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/10 23:01:16 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,36 @@ int main(void)
 	{
 		ICharacter *me = new Character("me");
 		std::cout << me->getName() << std::endl;
-		AMateria *Ma;
-		AMateria *Me;
-		Ma = new Ice();
-		Me = new Ice();
 
-		std::cout << "Here" << std::endl;
+		AMateria *M[5];
+		for (size_t i = 0; i < 5; i++)
+			M[i] = new Ice();
+
 		me->unequip(0);
-		std::cout << "Here" << std::endl;
 		me->print();
 
-		me->equip(Ma);
-		me->equip(Me);
+		me->equip(M[0]);
+		me->equip(M[1]);
+		me->equip(M[2]);
+		me->equip(M[3]);
+		me->equip(M[4]);
 		me->print();
 		me->unequip(0);
+		me->unequip(2);
+
+		me->print();
+		me->equip(M[4]);
+		me->equip(M[3]);
+
+		std::cout << "----" << std::endl;
+
+		me->print();
 		delete me;
-
-		// delete Ma;
-		// std::cout << me._inventory[0]->getType() << std::endl;
+		delete M[0];
+		delete M[1];
+		delete M[2];
+		delete M[3];
+		delete M[4];
 	}
 	{
 		// AMateria *Ma;

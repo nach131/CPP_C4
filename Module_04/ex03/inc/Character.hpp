@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:26:24 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/10 14:29:02 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/10 23:15:30 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 #include "iostream"
 #include "ICharacter.hpp"
+#include <limits.h>
 
-#define IMAX 4
+#define IMAX USHRT_MAX
+#define SIZE 4
 
 class Character : public ICharacter
 {
@@ -24,7 +26,10 @@ class Character : public ICharacter
 private:
 	std::string _name;
 	AMateria *_inventory[IMAX];
-	AMateria *_delete[IMAX];
+	AMateria *_equip[SIZE];
+	void dropEquip(int idx);
+	int _idxI;
+	Character operator++();
 
 public:
 	Character();

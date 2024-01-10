@@ -60,3 +60,31 @@ public:
 	virtual std::string const &getName() const = 0;
 	virtual void equip(AMateria *m) = 0;
 };
+
+#define IMAX 4
+
+class Character : public ICharacter
+{
+
+private:
+	std::string _name;
+	AMateria *_inventory[IMAX];
+
+public:
+	Character();
+	Character(const std::string &);
+
+	~Character();
+
+	std::string const &getName() const;
+	void equip(AMateria *m);
+	void unequip(int idx);
+	// void use(int idx, ICharacter &target);
+};
+
+Character::Character() : _name("")
+{
+	std::cout << CHARA << "[Character]" << GREEN << " - Constructor without parameter" << RESET << std::endl;
+	for (size_t i = 0; i < IMAX; i++)
+		this->_inventory[i] = new Ice();
+}
