@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:36:29 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/09 22:16:25 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:17:40 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@ Character::Character() : _name("")
 {
 	std::cout << CHARA << "[Character]" << GREEN << " - Constructor without parameter" << RESET << std::endl;
 	for (size_t i = 0; i < IMAX; i++)
-		this->_inventory[i] = new Ice();
-	// this->_inventory[i] = nullptr;
+		this->_inventory[i] = nullptr;
 }
 
 Character::Character(const std::string &name) : _name(name)
 {
 	std::cout << CHARA << "[Character]" << GREEN << " - Constructor [ name ]" << RESET << std::endl;
 	for (size_t i = 0; i < IMAX; i++)
-		this->_inventory[i] = new Ice();
-	// this->_inventory[i] = nullptr;
+		this->_inventory[i] = nullptr;
 }
 
 Character::Character(const Character &tmp)
@@ -41,6 +39,7 @@ Character::~Character()
 	std::cout << CHARA << "[Character]" << RED << " - Destructor" << RESET << std::endl;
 	for (size_t i = 0; i < IMAX; i++)
 	{
+		std::cout << this->_inventory[i] << std::endl;
 		if (this->_inventory[i] != nullptr)
 			delete this->_inventory[i];
 	}
@@ -53,7 +52,8 @@ Character &Character::operator=(const Character &tmp)
 	{
 		_name = tmp._name;
 		for (size_t i = 0; i < IMAX; i++)
-			this->_inventory[i] = nullptr;
+			this->_inventory[i] = tmp._inventory[i];
+		// this->_inventory[i] = nullptr;
 	}
 	return *this;
 }
@@ -86,7 +86,7 @@ void Character::unequip(int idx)
 	if (this->_inventory[idx] != nullptr)
 	{
 		std::cout << this->_inventory[idx]->getType() << ": has been deleted from inventory" << std::endl;
-		delete this->_inventory[idx];
+		// delete this->_inventory[idx];
 		this->_inventory[idx] = nullptr;
 	}
 	else

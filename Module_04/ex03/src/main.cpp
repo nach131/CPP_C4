@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:20:11 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/09 21:54:34 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/10 13:08:54 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@ int main(void)
 		ICharacter *me = new Character("me");
 		std::cout << me->getName() << std::endl;
 		AMateria *Ma;
+		AMateria *Me;
 		Ma = new Ice();
+		Me = new Ice();
 
+		std::cout << "Here" << std::endl;
 		me->unequip(0);
+		std::cout << "Here" << std::endl;
 		me->print();
 
 		me->equip(Ma);
-		me->equip(Ma);
+		me->equip(Me);
 		me->print();
 		// me->unequip(0);
 		delete me;
