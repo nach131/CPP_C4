@@ -28,6 +28,6 @@
 #define ICE "\x1B[43m\x1B[90m"
 #define CURE "\x1B[44m\x1B[97m"
 #define CHARA "\x1B[46m\x1B[30m"
-#define DIAM "\x1B[30m\x1B[46m"
+#define MATE "\x1B[30m\x1B[46m"
 
 #endif

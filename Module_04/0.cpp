@@ -1,64 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   0.cpp                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/11 16:06:19 by nmota-bu          #+#    #+#             */
+/*   Updated: 2024/01/11 18:12:48 by nmota-bu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
+
 #include <iostream>
 
-class Animal
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
+
+#define SIZE 4
+
+class MateriaSource : public IMateriaSource
 {
-protected:
-	std::string _type;
+private:
+	AMateria *_inventory[SIZE];
 
 public:
-	Animal();
-	Animal(const Animal &);
-	virtual ~Animal();
+	MateriaSource();
+	MateriaSource(const MateriaSource &);
 
-	Animal &operator=(const Animal &);
-	std::string getType() const;
-	virtual void makeSound() const;
-};
+	virtual ~MateriaSource();
+	MateriaSource &operator=(const MateriaSource &);
 
-Animal::Animal() {}
-Animal::Animal(const Animal &tmp)
-{
-	*this = tmp;
-}
-Animal::~Animal() {}
-
-Animal &Animal::operator=(const Animal &tmp)
-{
-	if (this != &tmp)
-	{
-		_type = tmp._type;
-	}
-	return *this;
+	// virtual void        learnMateria(AMateria *m);
+	// virtual AMateria    *createMateria(const std::string &type);
 }
 
-std::string Animal::getType() const { return _type; }
-void Animal::makeSound() const { std::cout << "Nada" << std::endl; }
-
-class Cat : public Animal
-{
-public:
-	Cat();
-	~Cat();
-	void makeSound() const;
-};
-
-Cat::Cat() { Animal::_type = "Cat"; }
-Cat::~Cat() {}
-
-void Cat::makeSound() const { std::cout << "Miaaau" << std::endl; }
-
-int main()
-{
-	const Animal *A = new Animal();
-	const Animal *cat = new Cat();
-
-	std::cout << "Animal: " << A->getType() << std::endl;
-	std::cout << "Cat: " << cat->getType() << std::endl;
-
-	A->makeSound();
-	cat->makeSound();
-
-	delete A;
-	delete cat;
-	return 0;
-}
+#endif

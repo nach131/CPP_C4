@@ -6,14 +6,16 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:56:05 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/09 20:42:54 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:07:02 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
+
 #include "Colors_ft.hpp"
 
-AMateria::AMateria() : _type("")
+AMateria::AMateria()
 {
 	std::cout << AMATERIA << "[AMateria]" << GREEN << "  - Constructor without parameter" << RESET << std::endl;
 }

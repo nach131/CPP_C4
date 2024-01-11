@@ -6,12 +6,11 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:26:19 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/09 20:45:15 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:20:36 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
-#include "AMateria.hpp"
 #include "Colors_ft.hpp"
 
 Ice::Ice()
@@ -45,4 +44,11 @@ AMateria *Ice::clone() const
 {
 	Ice *tmp = new Ice(*this);
 	return tmp;
+}
+
+void Ice::use(ICharacter &target)
+{
+	(void)target;
+	std::cout << "USE" << std::endl;
+	// std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

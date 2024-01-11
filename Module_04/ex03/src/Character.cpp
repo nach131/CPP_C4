@@ -6,13 +6,12 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:36:29 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/10 23:18:44 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:24:29 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "Colors_ft.hpp"
-#include "Ice.hpp"
 
 Character::Character() : _name(""), _idxI(0)
 {
@@ -21,7 +20,7 @@ Character::Character() : _name(""), _idxI(0)
 
 Character::Character(const std::string &name) : _name(name), _idxI(0)
 {
-	std::cout << CHARA << "[Character]" << GREEN << " - Constructor [ name ]" << RESET << std::endl;
+	std::cout << CHARA << "[Character]" << GREEN << " - Constructor [ " << _name << " ]" << RESET << std::endl;
 }
 
 Character::Character(const Character &tmp)
@@ -43,7 +42,8 @@ Character &Character::operator=(const Character &tmp)
 		_name = tmp._name;
 		for (size_t i = 0; i < IMAX; i++)
 			this->_inventory[i] = tmp._inventory[i];
-		// this->_equip[i] = tmp._equip[i];
+		for (size_t i = 0; i < SIZE; i++)
+			this->_equip[i] = tmp._equip[i];
 	}
 	return *this;
 }
@@ -63,7 +63,7 @@ void Character::equip(AMateria *m)
 	{
 		if (this->_equip[i] == nullptr)
 		{
-			this->_equip[i] = m;
+			this->_equip[i] = m->clone();
 			std::cout << m->getType() << " has been saved in position: " << i << std::endl;
 			break;
 		}
@@ -75,6 +75,7 @@ void Character::equip(AMateria *m)
 void Character::dropEquip(int idx)
 {
 	this->_inventory[this->_idxI] = this->_equip[idx];
+	// this->_inventory[this->_idxI]->operator=(*this->_equip[idx]);
 	this->_equip[idx] = nullptr;
 	++(*this);
 }
@@ -88,6 +89,22 @@ void Character::unequip(int idx)
 	}
 	if (this->_equip[idx] != nullptr)
 		dropEquip(idx);
+	else
+		std::cout << ERROR << "[ position: " << idx << " is empty ]" << RESET << std::endl;
+}
+
+void Character::use(int idx, ICharacter &target)
+{
+	(void)target;
+
+	if (idx < 0 || idx > SIZE)
+	{
+		std::cout << MAIN << idx << " not in inventory" << RESET << std::endl;
+		return;
+	}
+	if (this->_equip[idx] != nullptr)
+		;
+	// this->_equip[idx]->use(target);
 	else
 		std::cout << ERROR << "[ position: " << idx << " is empty ]" << RESET << std::endl;
 }

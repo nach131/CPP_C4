@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 11:57:43 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/11 21:18:11 by nmota-bu         ###   ########.fr       */
+/*   Created: 2024/01/11 16:06:19 by nmota-bu          #+#    #+#             */
+/*   Updated: 2024/01/11 21:22:54 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
 #include <iostream>
+
+#include "Ice.hpp"
+#include "Cure.hpp"
 #include "AMateria.hpp"
+#include "IMateriaSource.hpp"
 
-class Ice : public AMateria
+#define SIZE 4
+
+class MateriaSource : public IMateriaSource
 {
-protected:
-public:
-	Ice();
-	Ice(const Ice &);
-	~Ice();
-	Ice &operator=(const Ice &);
+private:
+	AMateria *_inventory[SIZE];
+	int _idx;
 
-	AMateria *clone() const;
-	void use(ICharacter &target);
+public:
+	MateriaSource();
+	MateriaSource(const MateriaSource &src);
+	~MateriaSource();
+
+	MateriaSource &operator=(const MateriaSource &rhs);
+
+	virtual void learnMateria(AMateria *m);
+	virtual AMateria *createMateria(const std::string &type);
 };
 
 #endif

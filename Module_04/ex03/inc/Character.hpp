@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:26:24 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/10 23:15:30 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:08:13 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 #define CHARACTER_HPP
 
 #include "iostream"
-#include "ICharacter.hpp"
 #include <limits.h>
 
-#define IMAX USHRT_MAX
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
+
+// #define IMAX USHRT_MAX
+#define IMAX 12
 #define SIZE 4
 
 class Character : public ICharacter
@@ -42,7 +47,7 @@ public:
 	std::string const &getName() const;
 	void equip(AMateria *m);
 	void unequip(int idx);
-	// void use(int idx, ICharacter &target);
+	void use(int idx, ICharacter &target);
 
 	void print() const;
 };
