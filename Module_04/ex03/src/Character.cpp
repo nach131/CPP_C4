@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:36:29 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/12 20:28:41 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/12 22:11:09 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,23 @@
 Character::Character() : _idxI(0)
 {
 	std::cout << CHARA << "[Character]" << GREEN << " - Constructor without parameter" << RESET << std::endl;
+	_name = "";
+
+	for (int i = 0; i < IMAX; ++i)
+		_inventory[i] = nullptr;
+
+	for (int i = 0; i < SIZE; ++i)
+		_equip[i] = nullptr;
 }
 
 Character::Character(const std::string &name) : _name(name), _idxI(0)
 {
 	std::cout << CHARA << "[Character]" << GREEN << " - Constructor [ " << _name << " ]" << RESET << std::endl;
+	for (int i = 0; i < IMAX; ++i)
+		_inventory[i] = nullptr;
+
+	for (int i = 0; i < SIZE; ++i)
+		_equip[i] = nullptr;
 }
 
 Character::Character(const Character &tmp)
@@ -32,7 +44,6 @@ Character::Character(const Character &tmp)
 Character::~Character()
 {
 	std::cout << CHARA << "[Character]" << RED << " - Destructor" << RESET << std::endl;
-
 	for (size_t i = 0; i < SIZE; i++)
 	{
 		if (this->_equip[i] != nullptr)
@@ -125,16 +136,11 @@ void Character::use(int idx, ICharacter &target)
 {
 	if (idx < 0 || idx > SIZE)
 	{
-		std::cout << MAIN << idx << " not in inventory" << RESET << std::endl;
+		std::cout << ERROR << idx << "[ not in inventory ]" << RESET << std::endl;
 		return;
 	}
 	if (this->_equip[idx] != nullptr)
-	{
-		if (this->_equip[idx]->getType() == "ice")
-			std::cout << "Ice: \'* shoots an ice bolt at " << target.getName() << " *\'" << std::endl;
-		else if (this->_equip[idx]->getType() == "cure")
-			std::cout << "Cure: \'* heals " << target.getName() << "’s wounds *\'" << std::endl;
-	}
+		this->_equip[idx]->use(target);
 	else
 		std::cout << ERROR << "[ position: " << idx << " is empty ]" << RESET << std::endl;
 }

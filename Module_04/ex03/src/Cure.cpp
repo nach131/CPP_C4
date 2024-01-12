@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:44:53 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/11 21:21:26 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/12 21:37:09 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,5 @@ AMateria *Cure::clone() const
 
 void Cure::use(ICharacter &target)
 {
-	(void)target;
-	std::cout << "USE" << std::endl;
-	// std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "Cure materia is used on " << target.getName() << std::endl;
 }

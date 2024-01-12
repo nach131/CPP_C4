@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:57:43 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/11 21:18:11 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/12 21:46:16 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 class Ice : public AMateria
 {
@@ -26,7 +27,7 @@ public:
 	Ice &operator=(const Ice &);
 
 	AMateria *clone() const;
-	void use(ICharacter &target);
+	virtual void use(ICharacter &target);
 };
 
 #endif

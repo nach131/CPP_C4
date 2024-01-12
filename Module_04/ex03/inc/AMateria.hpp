@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:56:06 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/11 21:23:29 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/12 22:02:03 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 
 	std::string const &getType() const; // Returns the materia type
 	virtual AMateria *clone() const = 0;
-	// virtual void use(ICharacter &target);
+	virtual void use(ICharacter &target);
 };
 
 #endif

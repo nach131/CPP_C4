@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 11:56:05 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/12 20:19:34 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/12 22:09:35 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,3 +42,8 @@ AMateria &AMateria::operator=(const AMateria &tmp)
 }
 
 std::string const &AMateria::getType() const { return _type; }
+
+void AMateria::use(ICharacter &target)
+{
+	std::cout << "USE AMateria " << target.getName() << std::endl;
+}
