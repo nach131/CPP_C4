@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:23:06 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/11 19:03:24 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:27:11 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ MateriaSource::MateriaSource(const MateriaSource &tmp)
 MateriaSource::~MateriaSource()
 {
 	std::cout << MATE << "[MateriaSource]" << RED << " - Destructor" << RESET << std::endl;
+
 	for (size_t i = 0; i < SIZE; i++)
 	{
 		if (this->_inventory[i] != nullptr)
@@ -49,6 +50,7 @@ void MateriaSource::learnMateria(AMateria *m)
 {
 	if (this->_idx < SIZE)
 	{
+		std::cout << "Now you know how to create " << m->getType() << std::endl;
 		this->_inventory[this->_idx] = m;
 		this->_idx++;
 	}
@@ -58,10 +60,17 @@ void MateriaSource::learnMateria(AMateria *m)
 
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
-	if (!type.compare("ice"))
-		return (new Ice());
-	else if (!type.compare("cure"))
-		return (new Cure());
-	else
-		return (NULL);
+	size_t i;
+
+	for (i = 0; i < SIZE; i++)
+	{
+		if (this->_inventory[i] != nullptr)
+		{
+			if (!type.compare(this->_inventory[i]->getType()))
+				return this->_inventory[i];
+		}
+	}
+	if (i == SIZE)
+		std::cout << "Have to learn " << type << " before you create it" << std::endl;
+	return (NULL);
 }

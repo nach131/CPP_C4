@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:20:11 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/11 21:17:41 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:21:26 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,15 +76,18 @@ int main(void)
 	{
 		IMateriaSource *src = new MateriaSource();
 		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
+		// src->learnMateria(new Cure());
 		ICharacter *me = new Character("me");
 		AMateria *tmp;
 		tmp = src->createMateria("ice");
-		me->equip(tmp);
-
-		// me->print();
-		// tmp = src->createMateria("cure");
 		// me->equip(tmp);
+		// me->print();
+
+		tmp = src->createMateria("cure");
+		// me->equip(tmp);
+
+		// me->unequip(0);
+
 		// ICharacter *bob = new Character("bob");
 		// me->use(0, *bob);
 		// me->use(1, *bob);
