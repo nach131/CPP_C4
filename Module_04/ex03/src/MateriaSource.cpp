@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:23:06 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/12 14:27:11 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:06:15 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void MateriaSource::learnMateria(AMateria *m)
 {
 	if (this->_idx < SIZE)
 	{
-		std::cout << "Now you know how to create " << m->getType() << std::endl;
+		std::cout << "Now you know how to create \"" << m->getType() << "\"" << std::endl;
 		this->_inventory[this->_idx] = m;
 		this->_idx++;
 	}
@@ -71,6 +71,6 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 		}
 	}
 	if (i == SIZE)
-		std::cout << "Have to learn " << type << " before you create it" << std::endl;
+		std::cout << "Have to learn \"" << type << "\" before you create it" << std::endl;
 	return (NULL);
 }

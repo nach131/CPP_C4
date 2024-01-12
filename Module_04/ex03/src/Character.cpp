@@ -6,14 +6,14 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 16:36:29 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/11 21:24:29 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/12 20:28:41 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "Colors_ft.hpp"
 
-Character::Character() : _name(""), _idxI(0)
+Character::Character() : _idxI(0)
 {
 	std::cout << CHARA << "[Character]" << GREEN << " - Constructor without parameter" << RESET << std::endl;
 }
@@ -32,6 +32,17 @@ Character::Character(const Character &tmp)
 Character::~Character()
 {
 	std::cout << CHARA << "[Character]" << RED << " - Destructor" << RESET << std::endl;
+
+	for (size_t i = 0; i < SIZE; i++)
+	{
+		if (this->_equip[i] != nullptr)
+			delete this->_equip[i];
+	}
+	for (size_t i = 0; i < IMAX; i++)
+	{
+		if (this->_inventory[i] != nullptr)
+			delete this->_inventory[i];
+	}
 }
 
 Character &Character::operator=(const Character &tmp)
@@ -40,10 +51,22 @@ Character &Character::operator=(const Character &tmp)
 	if (this != &tmp)
 	{
 		_name = tmp._name;
-		for (size_t i = 0; i < IMAX; i++)
-			this->_inventory[i] = tmp._inventory[i];
-		for (size_t i = 0; i < SIZE; i++)
-			this->_equip[i] = tmp._equip[i];
+		_idxI = tmp._idxI;
+
+		for (int i = 0; i < IMAX; ++i)
+		{
+			if (tmp._inventory[i])
+				_inventory[i] = tmp._inventory[i]->clone();
+			else
+				_inventory[i] = nullptr;
+		}
+		for (int i = 0; i < SIZE; ++i)
+		{
+			if (tmp._equip[i])
+				_equip[i] = tmp._equip[i]->clone();
+			else
+				_equip[i] = nullptr;
+		}
 	}
 	return *this;
 }
@@ -88,23 +111,30 @@ void Character::unequip(int idx)
 		return;
 	}
 	if (this->_equip[idx] != nullptr)
-		dropEquip(idx);
+	{
+		if (this->_idxI < IMAX)
+			dropEquip(idx);
+		else
+			std::cout << ERROR << " [ Inventory is full, you can't drop equipment ] " << RESET << std::endl;
+	}
 	else
 		std::cout << ERROR << "[ position: " << idx << " is empty ]" << RESET << std::endl;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	(void)target;
-
 	if (idx < 0 || idx > SIZE)
 	{
 		std::cout << MAIN << idx << " not in inventory" << RESET << std::endl;
 		return;
 	}
 	if (this->_equip[idx] != nullptr)
-		;
-	// this->_equip[idx]->use(target);
+	{
+		if (this->_equip[idx]->getType() == "ice")
+			std::cout << "Ice: \'* shoots an ice bolt at " << target.getName() << " *\'" << std::endl;
+		else if (this->_equip[idx]->getType() == "cure")
+			std::cout << "Cure: \'* heals " << target.getName() << "’s wounds *\'" << std::endl;
+	}
 	else
 		std::cout << ERROR << "[ position: " << idx << " is empty ]" << RESET << std::endl;
 }
