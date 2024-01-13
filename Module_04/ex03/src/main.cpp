@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 12:20:11 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/12 22:08:15 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/13 09:38:40 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,48 +19,34 @@
 
 int main(void)
 {
+	std::cout << "\t\t" << MAIN << "[ Equip & Inventary ]" << RESET << std::endl;
+	{
+		IMateriaSource *src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
 
-	// {
-	// 	ICharacter *me = new Character("me");
+		ICharacter *me = new Character("me");
 
-	// 	IMateriaSource *src = new MateriaSource();
-	// 	src->learnMateria(new Ice());
-	// 	src->learnMateria(new Cure());
+		AMateria *tmp;
+		tmp = src->createMateria("ice");
 
-	// 	AMateria *tmp;
-	// 	tmp = src->createMateria("ice");
-	// 	me->equip(tmp);
-	// 	tmp = src->createMateria("cure");
-	// 	me->equip(tmp);
-	// }
-	// std::cout << "\t\t" << MAIN << "[ Equip & Inventary ]" << RESET << std::endl;
-	// {
-	// 	IMateriaSource *src = new MateriaSource();
-	// 	src->learnMateria(new Ice());
-	// 	src->learnMateria(new Cure());
+		me->equip(tmp);
+		me->equip(tmp);
+		me->equip(tmp);
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
+		me->equip(tmp);
 
-	// 	ICharacter *me = new Character("me");
+		me->print();
 
-	// 	AMateria *tmp;
-	// 	tmp = src->createMateria("ice");
+		me->unequip(0);
+		me->unequip(1);
+		me->unequip(2); // CAMBIAR IMAX A 2
+		me->print();
 
-	// 	me->equip(tmp);
-	// 	me->equip(tmp);
-	// 	me->equip(tmp);
-	// 	tmp = src->createMateria("cure");
-	// 	me->equip(tmp);
-	// 	me->equip(tmp);
-
-	// 	me->print();
-
-	// 	me->unequip(0);
-	// 	me->unequip(1);
-	// 	me->unequip(2); // CAMBIAR IMAX A 2
-	// 	me->print();
-
-	// 	delete me;
-	// 	delete src;
-	// }
+		delete me;
+		delete src;
+	}
 	std::cout << "\t\t" << MAIN << "[ Mandatory ]" << RESET << std::endl;
 	{
 		IMateriaSource *src = new MateriaSource();

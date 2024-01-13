@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 16:23:06 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/12 18:06:15 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/13 09:34:43 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ MateriaSource::~MateriaSource()
 MateriaSource &MateriaSource::operator=(const MateriaSource &tmp)
 {
 	std::cout << MATE << "[MateriaSource]" << YELLOW << " - Assignation operator" << RESET << std::endl;
+	this->_idx = tmp._idx;
 	if (this != &tmp)
 	{
 		for (size_t i = 0; i < SIZE; i++)
