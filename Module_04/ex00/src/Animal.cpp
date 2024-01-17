@@ -6,16 +6,23 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:23:51 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/09 11:18:31 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:06:27 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Colors_ft.hpp"
 
-Animal::Animal() _type("")
+Animal::Animal()
 {
+	this->_type = "";
 	std::cout << ANIMAL_C << "[Animal]" << GREEN << " - Default constructor called without parameter" << RESET << std::endl;
+}
+
+Animal::Animal(std::string type)
+{
+	this->_type = type;
+	std::cout << ANIMAL_C << "[Animal]" << GREEN << " - Default constructor [ " << _type << " ]" << RESET << std::endl;
 }
 
 Animal::Animal(const Animal &tmp)

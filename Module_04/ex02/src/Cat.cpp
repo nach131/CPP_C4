@@ -6,7 +6,7 @@
 /*   By: nmota-bu <nmota-bu@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 12:39:25 by nmota-bu          #+#    #+#             */
-/*   Updated: 2024/01/09 15:42:37 by nmota-bu         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:11:59 by nmota-bu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 #include "Cat.hpp"
 #include "Colors_ft.hpp"
 
-Cat::Cat() : AMateria("Cat")
+Cat::Cat()
 {
 	std::cout << CAT_C << "[Cat]" << GREEN << " - Default constructor called without parameter" << RESET << std::endl;
-	// Animal::_type = "Cat";
-
+	Animal::_type = "Cat";
 	_brain = new Brain();
 }
 
